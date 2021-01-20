@@ -1,0 +1,2 @@
+nginx_start: true
+nginx_http_template_enable: true

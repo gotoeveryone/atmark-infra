@@ -1,0 +1,12 @@
+- hosts: web
+  become: yes
+  roles:
+    - timezone
+    - locale
+    - add_user
+    - nginxinc.nginx
+    - anxs.tmpreaper
+  vars_files:
+    - vars/user.yml
+    - vars/nginx.yml
+    - vars/tmpreaper.yml
