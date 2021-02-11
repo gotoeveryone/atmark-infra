@@ -1,2 +1,45 @@
-nginx_start: true
-nginx_http_template_enable: true
+nginx_config_http_template_enable: true
+nginx_config_http_template:
+  redmine:
+    conf_file_name: redmine.conf
+    conf_file_location: /etc/nginx/conf.d/
+    servers:
+      redmine_http:
+        listen:
+          listen_local_host:
+            port: 80
+            opts:
+              - default_server
+        server_name: '{{ redmine_server_name }}'
+        access_log:
+          - name: main
+            location: '/var/log/nginx/{{ redmine_server_name }}_access.log'
+        error_log:
+          location: '/var/log/nginx/{{ redmine_server_name }}_error.log'
+          level: warn
+        error_page: /usr/share/nginx/html
+        reverse_proxy:
+          locations:
+            redmine:
+              location: /
+              proxy_pass: 'http://redmine'
+              proxy_set_header:
+                header_host:
+                  name: Host
+                  value: $host
+                header_x_real_ip:
+                  name: X-Real-IP
+                  value: $remote_addr
+                header_x_forwarded_for:
+                  name: X-Forwarded-For
+                  value: $proxy_add_x_forwarded_for
+                header_x_forwarded_proto:
+                  name: X-Forwarded-Proto
+                  value: $scheme
+    upstreams:
+      redmine:
+        name: redmine
+        sticky_cookie: false
+        custom_options:
+          - server unix:/opt/redmine/tmp/redmine.sock fail_timeout=0;
+        servers: []

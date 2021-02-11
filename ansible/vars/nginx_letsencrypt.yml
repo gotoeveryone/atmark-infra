@@ -1,0 +1,16 @@
+nginx_http_template_enable: true
+nginx_http_template:
+  default:
+    conf_file_name: default.conf
+    conf_file_location: /etc/nginx/conf.d/
+    port: 80
+    server_name: '{{ server_name }}'
+    error_page: /usr/share/nginx/html
+    web_server:
+      locations:
+        default:
+          location: /
+          html_file_location: "/usr/share/nginx/html"
+          html_file_name: index.html
+          autoindex: false
+      http_demo_conf: false
