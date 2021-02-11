@@ -3,10 +3,15 @@
   roles:
     - timezone
     - locale
+    - yq
     - add_user
     - nginxinc.nginx
+    - geerlingguy.mysql
+    - geerlingguy.ruby
     - anxs.tmpreaper
   vars_files:
     - vars/user.yml
     - vars/nginx.yml
+    - vars/ruby.yml
+    - vars/mysql.yml
     - vars/tmpreaper.yml

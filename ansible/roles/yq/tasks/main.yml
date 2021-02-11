@@ -1,0 +1,16 @@
+- name: Install jq
+  apt:
+    name: jq
+    state: latest
+- name: Download pip
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: /tmp/get-pip.py
+    sha256sum: '8006625804f55e1bd99ad4214fd07082fee27a1c35945648a58f9087a714e9d4'
+  register: download_pip
+- name: Install pip
+  shell: python3 get-pip.py
+  when: download_pip.changed
+- name: Install yq
+  pip:
+    name: yq
