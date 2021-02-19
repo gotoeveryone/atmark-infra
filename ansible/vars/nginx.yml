@@ -8,8 +8,6 @@ nginx_config_http_template:
         listen:
           listen_local_host:
             port: 80
-            opts:
-              - default_server
         server_name: '{{ redmine_server_name }}'
         access_log:
           - name: main
@@ -43,3 +41,46 @@ nginx_config_http_template:
         custom_options:
           - server unix:/opt/redmine/tmp/redmine.sock fail_timeout=0;
         servers: []
+  jenkins:
+    conf_file_name: jenkins.conf
+    conf_file_location: /etc/nginx/conf.d/
+    servers:
+      jenkins_http:
+        listen:
+          listen_local_host:
+            port: 80
+        server_name: '{{ jenkins_server_name }}'
+        access_log:
+          - name: main
+            location: '/var/log/nginx/{{ jenkins_server_name }}_access.log'
+        error_log:
+          location: '/var/log/nginx/{{ jenkins_server_name }}_error.log'
+          level: warn
+        error_page: /usr/share/nginx/html
+        reverse_proxy:
+          locations:
+            jenkins:
+              location: /
+              proxy_pass: 'http://jenkins'
+              proxy_set_header:
+                header_host:
+                  name: Host
+                  value: $host
+                header_x_real_ip:
+                  name: X-Real-IP
+                  value: $remote_addr
+                header_x_forwarded_for:
+                  name: X-Forwarded-For
+                  value: $proxy_add_x_forwarded_for
+                header_x_forwarded_proto:
+                  name: X-Forwarded-Proto
+                  value: $scheme
+    upstreams:
+      jenkins:
+        name: jenkins
+        sticky_cookie: false
+        servers:
+          jenkins:
+            address: localhost
+            port: '{{ jenkins_http_port }}'
+            health_check: fail_timeout=0

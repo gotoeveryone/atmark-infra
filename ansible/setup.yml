@@ -9,6 +9,8 @@
     - nginxinc.nginx_config
     - geerlingguy.mysql
     - geerlingguy.ruby
+    - geerlingguy.java
+    - geerlingguy.jenkins
     - systemd
     - redmine
     - anxs.tmpreaper
@@ -17,5 +19,7 @@
     - vars/nginx.yml
     - vars/ruby.yml
     - vars/mysql.yml
+    - vars/java.yml
+    - vars/jenkins.yml
     - vars/redmine.yml
     - vars/tmpreaper.yml

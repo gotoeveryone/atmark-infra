@@ -1,0 +1,4 @@
+jenkins_http_port: 8080
+jenkins_admin_username: user
+jenkins_admin_password: password
+jenkins_java_options: "-Djenkins.install.runSetupWizard=false -Dmail.smtp.starttls.enable=true"

@@ -3,3 +3,5 @@
 
 [web:vars]
 server_name=hoge.example.com
+redmine_server_name=redmine.example.com
+jenkins_server_name=jenkins.example.com

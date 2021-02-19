@@ -1,4 +1,5 @@
 hosts
 vars/mysql.yml
 vars/redmine.yml
+vars/jenkins.yml
 vars/user.yml
