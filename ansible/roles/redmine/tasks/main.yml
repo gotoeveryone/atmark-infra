@@ -43,6 +43,17 @@
     chdir: /opt/redmine
     cmd: echo 'gem "unicorn"' >> ./Gemfile
   when: exists_unicorn_count.stdout == '0'
+- name: Check exists github hook module of Gemfile
+  shell:
+    chdir: /opt/redmine
+    cmd: grep 'gem "redmine_github_hook"' ./Gemfile | wc -l
+  register: exists_redmine_github_hook_count
+  changed_when: no
+- name: Add github hook module to Gemfile
+  shell:
+    chdir: /opt/redmine
+    cmd: echo 'gem "redmine_github_hook"' >> ./Gemfile
+  when: exists_redmine_github_hook_count.stdout == '0'
 - name: Install dependencies
   environment:
     BUNDLE_PATH: /opt/redmine/vendor/bundle
@@ -59,10 +70,6 @@
   shell:
     chdir: /opt/redmine
     cmd: bundle exec rails db:migrate
-- name: Clone webhook plugin
-  git: 
-    repo: https://github.com/koppen/redmine_github_hook.git
-    dest: /opt/redmine/redmine_github_hook
 - name: Clone theme
   git: 
     repo: https://github.com/farend/redmine_theme_farend_bleuclair.git
