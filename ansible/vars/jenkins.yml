@@ -1,3 +1,4 @@
+jenkins_hostname: '{{ hostvars[inventory_hostname].jenkins_server_name }}'
 jenkins_http_port: 8080
 jenkins_admin_username: '{{ hostvars[inventory_hostname].jenkins_admin_username }}'
 jenkins_admin_password: '{{ hostvars[inventory_hostname].jenkins_admin_password }}'

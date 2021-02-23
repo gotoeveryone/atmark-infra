@@ -10,9 +10,9 @@
     - geerlingguy.mysql
     - geerlingguy.ruby
     - geerlingguy.java
-    - geerlingguy.jenkins
-    - systemd
+    - jenkins
     - redmine
+    - systemd
     - anxs.tmpreaper
   vars_files:
     - vars/user.yml

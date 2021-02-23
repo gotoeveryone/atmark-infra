@@ -1,0 +1,10 @@
+- include_role:
+    name: geerlingguy.jenkins
+    public: yes
+- name: 'Add jenkins user to sudoers'
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '{{ jenkins_process_user }}'
+    line: '{{ jenkins_process_user }} ALL=(ALL) NOPASSWD: ALL'
+    validate: 'visudo -cf %s'
