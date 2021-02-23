@@ -1,0 +1,8 @@
+roles:
+  - anxs.tmpreaper
+  - geerlingguy.java
+  - geerlingguy.jenkins
+  - geerlingguy.mysql
+  - geerlingguy.ruby
+  - nginxinc.nginx
+  - nginxinc.nginx_config
