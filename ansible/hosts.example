@@ -3,6 +3,7 @@
 
 [web:vars]
 server_name=hoge.example.com
+certbot_admin_email=hoge@example.com
 redmine_server_name=redmine.example.com
 jenkins_server_name=jenkins.example.com
 jenkins_admin_username=admin

@@ -1,0 +1,9 @@
+certbot_create_if_missing: true
+certbot_admin_email: '{{ hostvars[inventory_hostname].certbot_admin_email }}'
+certbot_certs:
+  - domains:
+      - '{{ server_name }}'
+  - domains:
+      - '{{ redmine_server_name }}'
+  - domains:
+      - '{{ jenkins_server_name }}'

@@ -24,9 +24,9 @@ $ cd {repository_root}/ansible
 $ cp hosts.example hosts # please edit values
 $ cp vars/user.yml.example vars/user.yml # please edit values
 $ cp vars/mysql.yml.example vars/mysql.yml # please edit values
-$ cp vars/redmine.yml.example vars/redmine.yml # please edit values
 $
 $ pipenv install
 $ pipenv run install
+$ pipenv run setup_certificate -u {user_name} --private-key {private_key_path}
 $ pipenv run setup -u {user_name} --private-key {private_key_path}
 ```

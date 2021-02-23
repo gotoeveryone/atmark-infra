@@ -13,4 +13,5 @@ python_version = "3"
 
 [scripts]
 install = "ansible-galaxy install -r requirements.yml"
+setup_certificate = "ansible-playbook setup_certificate.yml"
 setup = "ansible-playbook setup.yml"
