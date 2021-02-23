@@ -1,6 +1,7 @@
 roles:
   - anxs.tmpreaper
   - geerlingguy.certbot
+  - geerlingguy.clamav
   - geerlingguy.java
   - geerlingguy.jenkins
   - geerlingguy.mysql
