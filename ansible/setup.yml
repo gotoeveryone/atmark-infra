@@ -13,7 +13,7 @@
     - jenkins
     - redmine
     - systemd
-    - geerlingguy.clamav
+    - clamav
     - anxs.tmpreaper
   vars_files:
     - vars/user.yml
