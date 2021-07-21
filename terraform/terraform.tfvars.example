@@ -1,3 +1,4 @@
 profile = "default"
 prefix = "atmark_k2ss"
 user = "kamizuru"
+allow_ssh_ip = "0.0.0.0"
