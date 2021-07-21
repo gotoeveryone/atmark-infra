@@ -1,8 +1,25 @@
+terraform {
+  required_version = "1.0.2"
+
+  backend "remote" {
+    organization = "k2ss"
+
+    workspaces {
+      name = "atmark-infra"
+    }
+  }
+
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = ">= 3.34.0"
+    }
+  }
+}
+
 provider "aws" {
   profile = var.profile
   region = var.region
-
-  version = ">= 3.34.0"
 }
 
 module "base" {
