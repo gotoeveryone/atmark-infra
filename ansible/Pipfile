@@ -4,14 +4,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+ansible-lint = "*"
 
 [packages]
-ansible = "*"
+ansible = "~=4.4.0"
 
 [requires]
-python_version = "3"
+python_version = "3.9"
 
 [scripts]
 install = "ansible-galaxy install -r requirements.yml"
 setup_certificate = "ansible-playbook setup_certificate.yml"
 setup = "ansible-playbook setup.yml"
+lint = "ansible-lint ./"

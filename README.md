@@ -1,5 +1,7 @@
 # atmark-infra
 
+![Lint Status](https://github.com/gotoeveryone/atmark-infra/workflows/Lint/badge.svg)
+
 ## Requirements
 
 - [Terraform CLI](https://www.terraform.io/docs/cli-index.html)
