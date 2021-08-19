@@ -1,0 +1,54 @@
+name: Lint
+
+on: [push]
+
+jobs:
+  ansible_lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ansible
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      - name: Setup Pipenv
+        run: pip install pipenv
+
+      - name: Cache virtualenvs
+        uses: actions/cache@v1
+        id: app_cache
+        with:
+          path: ~/.local/share/virtualenvs
+          key: ${{ runner.OS }}-lib-${{ hashFiles('**/Pipfile.lock') }}
+
+      - name: Install Dependencies
+        if: steps.app_cache.outputs.cache-hit != 'true'
+        run: pipenv install -d
+
+      - name: Execute Lint
+        run: pipenv run lint
+
+  terraform_lint:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: terraform
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.0
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+      - name: Terraform Init
+        run: terraform init
+
+      - name: Terraform Validate
+        run: terraform validate
