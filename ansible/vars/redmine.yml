@@ -1,5 +1,6 @@
-redmine_version: 4.0.6
-redmine_checksum: 173c4de0ce0a8b2b1e340b6f50d88dfc4ec3a3a7aae11acde201a15613aec8c4
-redmine_database_username: '{{ hostvars[inventory_hostname].redmine_database_username }}'
-redmine_database_password: '{{ hostvars[inventory_hostname].redmine_database_password }}'
-redmine_theme_farend_bleuclair_version: redmine4.0
+redmine_version: 4.2.2
+redmine_checksum: e6fbe9279939a95953d377ef76f180f204a1f3da5229a1d56055d658de7198f6
+redmine_database_username: "{{ hostvars[inventory_hostname].redmine_database_username }}"
+redmine_database_password: "{{ hostvars[inventory_hostname].redmine_database_password }}"
+redmine_github_hook_plugin_version: v3.0.1
+redmine_theme_version: master

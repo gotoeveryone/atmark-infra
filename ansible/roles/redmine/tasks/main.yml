@@ -2,24 +2,24 @@
   apt:
     name: libmysqlclient-dev
     state: latest
-- name: 'Download redmine package'
+- name: "Download redmine package"
   get_url:
-    url: 'https://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz'
+    url: "https://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz"
     dest: /tmp/redmine.tar.gz
-    sha256sum: '{{ redmine_checksum }}'
+    sha256sum: "{{ redmine_checksum }}"
   register: download_redmine_package
-- name: 'Create directory'
+- name: "Create directory"
   file:
     path: /opt/redmine/
     state: directory
-- name: 'Unarchive redmine package'
+- name: "Unarchive redmine package"
   unarchive:
     src: /tmp/redmine.tar.gz
     dest: /opt/redmine/
     extra_opts: [--strip-components=1]
     remote_src: yes
   when: download_redmine_package.changed
-- name: Setup configuration
+- name: Setup database configuration
   shell:
     chdir: /opt/redmine
     cmd: |
@@ -28,6 +28,7 @@
         | yq -y ".production.host = \"127.0.0.1\"" \
         | yq -y ".production.username = \"{{ redmine_database_username }}\"" \
         | yq -y ".production.password = \"{{ redmine_database_password }}\"" > config/database.yml
+  when: download_redmine_package.changed
 - name: Transfer unicorn configuration
   copy:
     src: unicorn.rb
@@ -43,23 +44,23 @@
     chdir: /opt/redmine
     cmd: echo 'gem "unicorn"' >> ./Gemfile
   when: exists_unicorn_count.stdout == '0'
-- name: Check exists github hook module of Gemfile
-  shell:
-    chdir: /opt/redmine
-    cmd: grep 'gem "redmine_github_hook"' ./Gemfile | wc -l
-  register: exists_redmine_github_hook_count
-  changed_when: no
-- name: Add github hook module to Gemfile
-  shell:
-    chdir: /opt/redmine
-    cmd: echo 'gem "redmine_github_hook"' >> ./Gemfile
-  when: exists_redmine_github_hook_count.stdout == '0'
+- name: Remove exists Gemfile.lock
+  file:
+    path: /opt/redmine/Gemfile.lock
+    state: absent
 - name: Install dependencies
   environment:
     BUNDLE_PATH: /opt/redmine/vendor/bundle
+    BUNDLE_WITHOUT: development:test:rmagick
   shell:
     chdir: /opt/redmine
-    cmd: bundle install --without development test rmagick
+    cmd: bundle install
+- name: Clone plugin
+  git:
+    repo: https://github.com/koppen/redmine_github_hook.git
+    dest: /opt/redmine/plugins/redmine_github_hook
+    version: "{{ redmine_github_hook_plugin_version }}"
+  when: redmine_github_hook_plugin_version is defined
 - name: Generate secret token
   shell:
     chdir: /opt/redmine
@@ -71,11 +72,11 @@
     chdir: /opt/redmine
     cmd: bundle exec rails db:migrate
 - name: Clone theme
-  git: 
-    repo: https://github.com/farend/redmine_theme_farend_bleuclair.git
-    dest: /opt/redmine/public/themes/bleuclair
-    version: '{{ redmine_theme_farend_bleuclair_version }}'
-  when: redmine_theme_farend_bleuclair_version is defined
+  git:
+    repo: https://github.com/Bezvastudio/bs-redmine-theme-dark.git
+    dest: /opt/redmine/public/themes/bs-redmine-theme-dark
+    version: "{{ redmine_theme_version }}"
+  when: redmine_theme_version is defined
 - name: Start service
   systemd:
     name: redmine
