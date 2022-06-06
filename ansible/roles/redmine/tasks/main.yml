@@ -2,17 +2,17 @@
   apt:
     name: libmysqlclient-dev
     state: latest
-- name: "Download redmine package"
+- name: Download redmine package
   get_url:
-    url: "https://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz"
+    url: 'https://www.redmine.org/releases/redmine-{{ redmine_version }}.tar.gz'
     dest: /tmp/redmine.tar.gz
-    sha256sum: "{{ redmine_checksum }}"
+    checksum: 'sha256:{{ redmine_checksum }}'
   register: download_redmine_package
-- name: "Create directory"
+- name: Create directory
   file:
     path: /opt/redmine/
     state: directory
-- name: "Unarchive redmine package"
+- name: Unarchive redmine package
   unarchive:
     src: /tmp/redmine.tar.gz
     dest: /opt/redmine/
@@ -59,7 +59,7 @@
   git:
     repo: https://github.com/koppen/redmine_github_hook.git
     dest: /opt/redmine/plugins/redmine_github_hook
-    version: "{{ redmine_github_hook_plugin_version }}"
+    version: '{{ redmine_github_hook_plugin_version }}'
   when: redmine_github_hook_plugin_version is defined
 - name: Generate secret token
   shell:
@@ -71,12 +71,16 @@
   shell:
     chdir: /opt/redmine
     cmd: bundle exec rails db:migrate
+- name: Exists theme
+  stat:
+    path: /opt/redmine/public/themes/bs-redmine-theme-dark
+  register: exists_theme
 - name: Clone theme
   git:
     repo: https://github.com/Bezvastudio/bs-redmine-theme-dark.git
     dest: /opt/redmine/public/themes/bs-redmine-theme-dark
-    version: "{{ redmine_theme_version }}"
-  when: redmine_theme_version is defined
+    version: '{{ redmine_theme_version }}'
+  when: exists_theme.stat.exists == false
 - name: Start service
   systemd:
     name: redmine
