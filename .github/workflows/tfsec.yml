@@ -1,0 +1,23 @@
+name: Lint
+
+on: [pull_request]
+
+jobs:
+  tfsec:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        workspace:
+          - directory: ./terraform
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run tfsec with reviewdog output on the PR
+        uses: reviewdog/action-tfsec@master
+        with:
+          github_token: ${{ secrets.REVIEWDOG_GITHUB_TOKEN }}
+          working_directory: ${{ matrix.workspace.directory }}
+          tfsec_version: v1.27.5
+          reporter: github-pr-review
+          filter_mode: nofilter
+          fail_on_error: true
