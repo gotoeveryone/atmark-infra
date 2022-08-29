@@ -52,3 +52,13 @@ jobs:
 
       - name: Terraform Validate
         run: terraform validate
+
+      - name: Run tfsec with reviewdog output on the PR
+        uses: reviewdog/action-tfsec@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          working_directory: terraform
+          tfsec_version: v1.27.5
+          reporter: github-pr-review
+          filter_mode: nofilter
+          fail_on_error: true
