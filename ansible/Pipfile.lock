@@ -284,11 +284,11 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:ac8241d3ce1b161f0e052b44f0d226fbda7d8f318d4f24269de7f2b87e32ff6f",
-                "sha256:f4432c74c0f28b2870a188b4999592f6338042f30d0c6f4ee11b32440ca9ffe4"
+                "sha256:56bf7974594e34b9327211d2febe623978850a1fab4330da94e2964ab52cfe42",
+                "sha256:eb467d725d0839693ef5fe11abe18085f472c2da4837a8e2df724e04ede96af6"
             ],
             "index": "pypi",
-            "version": "==6.5.2"
+            "version": "==6.6.0"
         },
         "attrs": {
             "hashes": [
@@ -750,11 +750,11 @@
         },
         "wcmatch": {
             "hashes": [
-                "sha256:ba4fc5558f8946bf1ffc7034b05b814d825d694112499c86035e0e4d398b6a67",
-                "sha256:dc7351e5a7f8bbf4c6828d51ad20c1770113f5f3fd3dfe2a03cfde2a63f03f98"
+                "sha256:3476cd107aba7b25ba1d59406938a47dc7eec6cfd0ad09ff77193f21a964dee7",
+                "sha256:b1f042a899ea4c458b7321da1b5e3331e3e0ec781583434de1301946ceadb943"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==8.4"
+            "version": "==8.4.1"
         },
         "yamllint": {
             "hashes": [
