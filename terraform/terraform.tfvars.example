@@ -1,4 +1,4 @@
-profile = "default"
-prefix = "atmark_k2ss"
-user = "kamizuru"
+profile      = "default"
+prefix       = "atmark"
+user         = "hogefuga"
 allow_ssh_ip = "0.0.0.0"
