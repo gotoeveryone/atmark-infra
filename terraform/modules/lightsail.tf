@@ -7,6 +7,12 @@ resource "aws_lightsail_key_pair" "web" {
   count      = 1
   name       = "${var.prefix}_key"
   public_key = file("~/.ssh/${var.prefix}.pub")
+
+  lifecycle {
+    ignore_changes = [
+      public_key
+    ]
+  }
 }
 
 resource "aws_lightsail_instance" "web" {
