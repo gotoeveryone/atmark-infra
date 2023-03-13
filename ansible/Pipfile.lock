@@ -275,11 +275,11 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:7544638ee633ec2f7313abb12ec429e8cfeda007d075e0a179fc8b1f1761df01",
-                "sha256:e55157ac18bb3e3dfef424381c0299c67aac633de5aa11f7f80fe0a508041d7a"
+                "sha256:1e76d6736efff05556d0f15d052822688b512759a3e97820b22ba59ecd900de2",
+                "sha256:de87ef104302c2c6fcb43798a75c42d4f0a5c07e887c2a1d07a0b5a9fb774de0"
             ],
             "index": "pypi",
-            "version": "==6.14.0"
+            "version": "==6.14.2"
         },
         "attrs": {
             "hashes": [
@@ -556,11 +556,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:13b08a53ed71021350c9e300d4ea8668438fb0046ab3937ac9a29913a1a1350a",
-                "sha256:accc3665857288317f32c7bebb5a8e482ba717b474f3fc1d18ca7f9214be0cef"
+                "sha256:024996549ee88ec1a9aa99ff7f8fc819bb59e2c3477b410d90a16d32d6e707aa",
+                "sha256:e5986afb596e4bb5bde29a79ac9061aa955b94fca2399b7aaac4090860920dd8"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==3.1.0"
+            "version": "==3.1.1"
         },
         "pycparser": {
             "hashes": [
@@ -724,11 +724,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:15136a251127da2d2e77ac7a1bc231eb504654f7e3346d93613a13f2e2787535",
-                "sha256:1c39d42bda4cb89f7fdcad52b6762e3c309ec8f8715b27c684176b7d71283242"
+                "sha256:2ee892cd5f29f3373097f5a814697e397cf3ce313616df0af11231e2ad118077",
+                "sha256:b78aaa36f6b90a074c1fa651168723acbf45d14cb1196b6f02c0fd07f17623b2"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==67.5.1"
+            "version": "==67.6.0"
         },
         "subprocess-tee": {
             "hashes": [
