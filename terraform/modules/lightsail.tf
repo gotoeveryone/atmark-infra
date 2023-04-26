@@ -17,6 +17,7 @@ resource "aws_lightsail_key_pair" "web" {
 
 resource "aws_lightsail_instance" "web" {
   name              = "${var.prefix}_instance"
+  ip_address_type   = "ipv4"
   availability_zone = "${var.region}a"
   blueprint_id      = "ubuntu_20_04"
   bundle_id         = "medium_2_0"
