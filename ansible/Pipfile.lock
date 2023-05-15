@@ -271,11 +271,11 @@
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:4ce790cf0006760ba01d8b946d80303702fc7454bd19c6b3079dd98d40517e6f",
-                "sha256:e5a3b7bd1ebe3cc1c574d1bd3de756bdf157110559024c50d34b5479d47290ba"
+                "sha256:c932a2ed77828943286cd46a29ddbae72d6fba8f09dbbcb2d620afa3cbe04871",
+                "sha256:df82f3935f1209e3074408eeae5e837ccec6fd52c1d3126689ff4124abb0a5cb"
             ],
             "index": "pypi",
-            "version": "==6.15.0"
+            "version": "==6.16.0"
         },
         "attrs": {
             "hashes": [
@@ -548,11 +548,11 @@
         },
         "platformdirs": {
             "hashes": [
-                "sha256:47692bc24c1958e8b0f13dd727307cff1db103fca36399f457da8e05f222fdc4",
-                "sha256:7954a68d0ba23558d753f73437c55f89027cf8f5108c19844d4b82e5af396335"
+                "sha256:412dae91f52a6f84830f39a8078cecd0e866cb72294a5c66808e74d5e88d251f",
+                "sha256:e2378146f1964972c03c085bb5662ae80b2b8c06226c54b2ff4aa9483e8a13a5"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==3.5.0"
+            "version": "==3.5.1"
         },
         "pycparser": {
             "hashes": [
@@ -666,11 +666,11 @@
         },
         "ruamel.yaml": {
             "hashes": [
-                "sha256:742b35d3d665023981bd6d16b3d24248ce5df75fdb4e2924e93a05c1f8b61ca7",
-                "sha256:8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
+                "sha256:25d0ee82a0a9a6f44683dcf8c282340def4074a4562f3a24f55695bb254c1693",
+                "sha256:baa2d0a5aad2034826c439ce61c142c07082b76f4791d54145e131206e998059"
             ],
             "markers": "python_version >= '3'",
-            "version": "==0.17.21"
+            "version": "==0.17.26"
         },
         "ruamel.yaml.clib": {
             "hashes": [
@@ -711,7 +711,7 @@
                 "sha256:f34019dced51047d6f70cb9383b2ae2853b7fc4dce65129a5acd49f4f9256646",
                 "sha256:f6d3d39611ac2e4f62c3128a9eed45f19a6608670c5a2f4f07f24e8de3441d38"
             ],
-            "markers": "python_version < '3.11' and platform_python_implementation == 'CPython'",
+            "markers": "python_version < '3.12' and platform_python_implementation == 'CPython'",
             "version": "==0.2.7"
         },
         "subprocess-tee": {
