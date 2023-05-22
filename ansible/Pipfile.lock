@@ -26,11 +26,11 @@
         },
         "ansible-core": {
             "hashes": [
-                "sha256:8c4eed76ce458b4a37334a0802df29488ecf9f8af38c3111069c96b17b205530",
-                "sha256:bc1755f43bdddac574607e959010f98256ff87068ca7e23be5a9d335f6ebf01e"
+                "sha256:08963309f44cd98862aba8d887ac5c2b4159cd1c2e31ac9cf47d661e985e6bb9",
+                "sha256:0cddb0df454561981f1c541db7ac5398d5e9de452ea1f01847acbd031fd7d2b2"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==2.14.5"
+            "version": "==2.14.6"
         },
         "cffi": {
             "hashes": [
@@ -263,19 +263,19 @@
     "develop": {
         "ansible-core": {
             "hashes": [
-                "sha256:8c4eed76ce458b4a37334a0802df29488ecf9f8af38c3111069c96b17b205530",
-                "sha256:bc1755f43bdddac574607e959010f98256ff87068ca7e23be5a9d335f6ebf01e"
+                "sha256:08963309f44cd98862aba8d887ac5c2b4159cd1c2e31ac9cf47d661e985e6bb9",
+                "sha256:0cddb0df454561981f1c541db7ac5398d5e9de452ea1f01847acbd031fd7d2b2"
             ],
             "markers": "python_version >= '3.9'",
-            "version": "==2.14.5"
+            "version": "==2.14.6"
         },
         "ansible-lint": {
             "hashes": [
-                "sha256:c932a2ed77828943286cd46a29ddbae72d6fba8f09dbbcb2d620afa3cbe04871",
-                "sha256:df82f3935f1209e3074408eeae5e837ccec6fd52c1d3126689ff4124abb0a5cb"
+                "sha256:086306d5962639100d03701fce589c85549fe1c23e359abc52c91e07f0108e5b",
+                "sha256:93ad8a04adcda6025d4ff218a10694120fe70cb91da8ac9f85c5dc82b32456e4"
             ],
             "index": "pypi",
-            "version": "==6.16.0"
+            "version": "==6.16.2"
         },
         "attrs": {
             "hashes": [
@@ -433,6 +433,14 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==3.12.0"
+        },
+        "importlib-resources": {
+            "hashes": [
+                "sha256:2238159eb743bd85304a16e0536048b3e991c531d1cd51c4a834d1ccf2829057",
+                "sha256:4df460394562b4581bb4e4087ad9447bd433148fba44241754ec3152499f1d1b"
+            ],
+            "markers": "python_version < '3.10'",
+            "version": "==5.0.7"
         },
         "jinja2": {
             "hashes": [
