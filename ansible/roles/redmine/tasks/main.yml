@@ -55,12 +55,13 @@
   shell:
     chdir: /opt/redmine
     cmd: bundle install
-- name: Clone plugin
-  git:
-    repo: https://github.com/koppen/redmine_github_hook.git
-    dest: /opt/redmine/plugins/redmine_github_hook
-    version: '{{ redmine_github_hook_plugin_version }}'
-  when: redmine_github_hook_plugin_version is defined
+# Ruby 3.x や Redmine 5.x に対応していないため利用しない
+# - name: Clone plugin
+#   git:
+#     repo: https://github.com/koppen/redmine_github_hook.git
+#     dest: /opt/redmine/plugins/redmine_github_hook
+#     version: '{{ redmine_github_hook_plugin_version }}'
+#   when: redmine_github_hook_plugin_version is defined
 - name: Generate secret token
   shell:
     chdir: /opt/redmine
