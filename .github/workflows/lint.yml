@@ -9,10 +9,10 @@ jobs:
       run:
         working-directory: ansible
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
 
@@ -20,7 +20,7 @@ jobs:
         run: pip install pipenv
 
       - name: Cache virtualenvs
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         id: app_cache
         with:
           path: ~/.local/share/virtualenvs
@@ -39,10 +39,10 @@ jobs:
       run:
         working-directory: terraform
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
 
       - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v2
         with:
           terraform_version: 1.0
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
